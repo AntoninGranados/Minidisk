@@ -1,3 +1,7 @@
+import sys
+sys.path.append('.')
+sys.path.append('..')
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle as PltCircle, Ellipse as PltEllipse
