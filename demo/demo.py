@@ -1,3 +1,4 @@
+# To import the functions from the root folder
 import sys
 sys.path.append('.')
 sys.path.append('..')
@@ -6,19 +7,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle as PltCircle, Ellipse as PltEllipse
 
-from minidisk import Circle, minidisk
+from minidisk import minidisk
 from miniellipse import miniellipse
 
-points = np.random.random((20, 2)) * 2 - 1
+points = np.random.random((4, 2)) * 2 - 1
 
 circle = minidisk(list(points))
-ellipse = miniellipse(list(points))
-
 plt_circle = PltCircle(
     circle.center, circle.radius,
     facecolor="none", edgecolor="k"
 )
 
+ellipse = miniellipse(list(points))
 eigenvalues, eigenvectors = np.linalg.eig(ellipse)
 axis_size = 2 / np.sqrt(eigenvalues)
 angle = np.rad2deg(np.atan2(eigenvectors[1,0], eigenvectors[0,0]))

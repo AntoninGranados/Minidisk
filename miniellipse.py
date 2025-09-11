@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.linalg as linalg
 from copy import deepcopy
 
 def ellipse_through(points):
