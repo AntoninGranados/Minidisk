@@ -4,17 +4,18 @@ from copy import deepcopy
 def ellipse_through(points):
 	if len(points) == 0:
 		return np.zeros((2,2))
-	
+
 	if len(points) == 1:
-		# r = np.dot(points[0], points[0])
-		# return np.eye(2) / r
 		return np.zeros((2,2))
-	
+
 	if len(points) == 2:
 		p1 = np.array(points[0])
 		p2 = np.array(points[1])
 		A = np.outer(p1, p1) + np.outer(p2, p2)
-		return np.linalg.inv(A)
+		try:
+		    return np.linalg.inv(A)
+		except:
+			return np.zeros((2,2))
 
 	if len(points) == 3:
 		A = np.array([
@@ -29,7 +30,7 @@ def ellipse_through(points):
 			return np.zeros((2,2))
 		return np.array([[a, b],
 						[b, c]])
-	
+
 	return np.zeros((2,2))
 
 def inside_ellipse(p, ellipse_mat) -> bool:

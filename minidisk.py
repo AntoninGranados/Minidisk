@@ -3,6 +3,7 @@ from copy import deepcopy
 from collections import namedtuple
 
 Circle = namedtuple("Circle", ["center", "radius"], defaults=[np.array([0,0]), 0])
+
 def circle_through(points: list) -> Circle:
 	if len(points) == 0:
 		return Circle()
